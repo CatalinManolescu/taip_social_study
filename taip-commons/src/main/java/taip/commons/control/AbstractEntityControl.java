@@ -92,15 +92,13 @@ public abstract class AbstractEntityControl<R extends EntityRepository<E>, E ext
     }
 
     @Override
-    public Page<E> findAll(int page, int size, String[] directions,
-            String... properties) {
+    public Page<E> findAll(int page, int size, String[] directions, String... properties) {
         return getRepository().findAll(
                 CollectionUtil.createPageRequest(page, size, CollectionUtil.sortDirections(directions), properties));
     }
 
     @Override
-    public Page<E> findAll(int page, int size, Sort.Direction[] directions,
-            String... properties) {
+    public Page<E> findAll(int page, int size, Sort.Direction[] directions, String... properties) {
         return getRepository().findAll(
                 CollectionUtil.createPageRequest(page, size, directions, properties));
     }

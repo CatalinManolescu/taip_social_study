@@ -109,8 +109,7 @@ public final class CollectionUtil {
                     direction = direction.trim();
                 }
 
-                Sort.Direction sortDirection = Sort.Direction
-                        .fromStringOrNull(direction);
+                Sort.Direction sortDirection = Sort.Direction.fromStringOrNull(direction);
                 // add only not null directions to list
                 if (sortDirection != null) {
                     directionList[i] = sortDirection;
