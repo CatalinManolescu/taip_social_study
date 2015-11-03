@@ -23,4 +23,9 @@ public class PersonControl extends AbstractEntityControl<PersonRepository, Perso
     protected PersonRepository getRepository() {
         return personRepository;
     }
+
+    @Override
+    protected void validate(Person entity) {
+        super.validate(entity);
+    }
 }

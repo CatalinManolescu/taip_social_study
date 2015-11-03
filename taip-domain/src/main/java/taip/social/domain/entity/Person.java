@@ -26,7 +26,7 @@ import java.util.Date;
 @XmlRootElement(name = "person")
 public class Person implements PersistentEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "persons_id_seq")
     private long id;
 
     @Column(name = "first_name", length = 20, nullable = false)
