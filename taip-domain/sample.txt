@@ -1,0 +1,93 @@
+analiza evenimentelor (evolutia lor) folosind tweet-uri
+- de unde au provenit, cat de repede s-au extins, migrarea stirilor
+
+
+1. ce retele sociale?
+	- G+ & FB + www.goodreads.com
+2. ce informatii vrem sa extragem?
+	- la ce anume da like-uri utilizatorul, locuri , evenimente la care participa?
+	- sporturi, muzica, filme, carti TV shows
+	- lista prieteni
+3. define API + base domain model
+4. implementare pt fiecare retea sociala
+5. ce facem cu datele obtinute?
+	- matching bazat pe preferinte comune fara granita de reteaua sociala din care utilizatorii fac parte
+6. implementare algoritm
+7. (care va fi si pe parcurs) testare
+
+
+User (users)
+	- id
+	- user_name
+	- password
+	- person_id
+
+Person (persons)
+	- first_name
+	- last_name
+	- birth_date
+	
+
+Friend (we may not need this)
+	- 
+	
+Book (books)
+	- ISBN
+	- author
+	- publisher
+	- release_year
+	- language (Enum EN/RO/..../Undefined)
+	- genre (Enum IT Hardware/IT Software/... http://reference.yourdictionary.com/books-literature/different-types-of-books.html)
+
+Movie (movies)
+	- name
+	- genre (Enum movie genre)
+	- release_year
+
+Music (music)
+	- name
+	- type (Enum MUSICIAN/BAND)
+	- genre (Enum music genre)
+	
+TV (tv_shows)
+	- name 
+	- genre
+
+Stuff
+	- name 
+	- type (artist/website/organisation/...)
+	- category (news/science/entertainment/...)
+
+Event (events) 
+	- name
+	- type  
+	- date
+	
+PersonBook (person_books)
+	- person_id
+	- book_id
+	- status (Enum READ/READING/WANT_TO_READ)
+	- like (Enum LIKE/DISLIKE)
+
+PersonMovie (person_movies)
+	- person_id
+	- movie_id
+	- status (Enum WATCHED/WANT_TO_WATCH)
+	- like (Enum LIKE/DISLIKE)
+	
+PersonTV (person_tv_shows) 
+	- person_id
+	- tv_show_id
+	- like (Enum LIKE/DISLIKE)
+
+PersonStuff
+	- person_id
+	- stuff_id
+
+PersonEvent (person_events)
+	- person_id
+	- event_id
+	
+
+	
+	

@@ -2,15 +2,7 @@ package taip.social.domain.entity;
 
 import taip.commons.entity.PersistentEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -33,11 +25,14 @@ public class Person implements PersistentEntity {
     private String firstName;
 
     @Column(name = "last_name", length = 20, nullable = false)
-    private String lasttName;
+    private String lastName;
     
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
+
+    @OneToOne(mappedBy = "person")
+    private User user;
     
     @Override
     public long getId() {
@@ -57,12 +52,12 @@ public class Person implements PersistentEntity {
         this.firstName = firstName;
     }
 
-    public String getLasttName() {
-        return lasttName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLasttName(String lasttName) {
-        this.lasttName = lasttName;
+    public void setLastName(String lasttName) {
+        this.lastName = lasttName;
     }
 
     public Date getBirthDate() {
