@@ -32,7 +32,13 @@
         <!-- Unit testing -->
         <junit.version>4.11</junit.version>
     </properties>
-	
+
+    <modules>
+        <module>taip-commons</module>
+        <module>taip-domain</module>
+        <module>taip-business</module>
+        <module>taip-api</module>
+    </modules>
     <build>
         <plugins>
             <!-- Maven compiler plugin -->
