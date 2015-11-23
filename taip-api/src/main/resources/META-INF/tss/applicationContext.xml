@@ -70,4 +70,8 @@
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
     <!-- PERSISTENCE CONFIG - END -->
+
+    <!-- Auto logging -->
+    <aop:aspectj-autoproxy />
+    <bean id="logEntityControl" class="taip.commons.aop.LogEntityControlAspect"/>
 </beans>
