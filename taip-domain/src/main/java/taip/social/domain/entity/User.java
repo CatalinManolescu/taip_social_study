@@ -3,6 +3,7 @@ package taip.social.domain.entity;
 import taip.commons.entity.PersistentEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,6 +27,13 @@ public class User implements PersistentEntity{
     @Column(name = "password", length = 50, nullable = false)
     private String password;
 
+    /**
+     * Used to enable/disable login.
+     */
+    @NotNull
+    @Column(name = "enabled", nullable = false)
+    private Boolean enabled;
+    
     @OneToOne
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
@@ -54,6 +62,14 @@ public class User implements PersistentEntity{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public Person getPerson() {
