@@ -30,7 +30,7 @@
         <jaxb.version>2.2.7</jaxb.version>
 
         <jackson.version>2.2.3</jackson.version>
-        
+
         <!-- logging -->
         <slf4j.version>1.7.2</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
@@ -229,6 +229,12 @@
                 <version>1.0</version>
             </dependency>
 
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.38</version>
+            </dependency>
 
             <dependency>
                 <groupId>cglib</groupId>

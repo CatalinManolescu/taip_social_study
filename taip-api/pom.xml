@@ -101,7 +101,11 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
         </dependency>
-        
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 
         <!-- other stuff -->
         <dependency>
@@ -139,4 +143,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <filters>
+            <filter>${project.basedir}/src/env/dev.properties</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>
