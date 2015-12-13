@@ -12,12 +12,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "person_social_events")
-@SequenceGenerator(name = "person_social_events_id_seq", sequenceName = "person_social_events_id_seq")
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @XmlRootElement(name = "person_social_event")
 public class PersonSocialEvent implements PersistentEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_social_events_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne
@@ -40,5 +39,29 @@ public class PersonSocialEvent implements PersistentEntity {
     @Override
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public SocialEvent getEvent() {
+        return event;
+    }
+
+    public void setEvent(SocialEvent event) {
+        this.event = event;
+    }
+
+    public Like getLike() {
+        return like;
+    }
+
+    public void setLike(Like like) {
+        this.like = like;
     }
 }
