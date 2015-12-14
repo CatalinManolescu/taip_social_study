@@ -13,12 +13,11 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "persons")
-@SequenceGenerator(name = "persons_id_seq", sequenceName = "persons_id_seq")
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @XmlRootElement(name = "person")
 public class Person implements PersistentEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "persons_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "first_name", length = 20, nullable = false)

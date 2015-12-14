@@ -12,12 +12,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "person_movies")
-@SequenceGenerator(name = "person_movies_id_seq", sequenceName = "person_movies_id_seq")
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @XmlRootElement(name = "person_movie")
 public class PersonMovie implements PersistentEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_movies_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne
