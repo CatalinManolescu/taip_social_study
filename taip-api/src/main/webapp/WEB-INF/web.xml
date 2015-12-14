@@ -41,7 +41,7 @@
 
     <servlet-mapping>
         <servlet-name>cxf</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
     
     <session-config>
