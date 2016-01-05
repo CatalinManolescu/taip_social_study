@@ -15,6 +15,8 @@
         <org.springframework.version>4.0.4.RELEASE</org.springframework.version>
         <org.springsecurity.version>3.2.3.RELEASE</org.springsecurity.version>
         <org.springframework.data.jpa>1.5.2.RELEASE</org.springframework.data.jpa>
+        <org.springframework.social>1.1.4.RELEASE</org.springframework.social>
+        <org.springframework.social.facebook>2.0.3.RELEASE</org.springframework.social.facebook>
 
         <org.aspectj.version>1.7.3</org.aspectj.version>
 
@@ -84,6 +86,28 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Spring boot -->
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-core</artifactId>
+                <version>${org.springframework.social}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-config</artifactId>
+                <version>${org.springframework.social}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-security</artifactId>
+                <version>${org.springframework.social}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-facebook</artifactId>
+                <version>${org.springframework.social.facebook}</version>
+            </dependency>
+
             <!-- Spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -450,5 +474,23 @@
             <name>Gephi Releases</name>
             <url>http://nexus.gephi.org/nexus/content/repositories/releases/</url>
         </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

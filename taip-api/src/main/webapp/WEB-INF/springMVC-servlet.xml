@@ -1,0 +1,58 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.1.xsd
+   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+
+    <!--<mvc:annotation-driven/>-->
+    <!--<context:annotation-config/>-->
+    <context:component-scan base-package="org.springframework.social.facebook"/>
+    <context:component-scan base-package="taip.social.api" />
+
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>-->
+
+    <!-- spring social -->
+    <bean id="connectionFactoryLocator"
+          class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
+        <property name="connectionFactories">
+            <list>
+                <bean class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+                    <constructor-arg value="985545381518549" />
+                    <constructor-arg value="eb5dafc9ea39ce3d4800003b7de49b2d" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="connectionRepository" factory-method="createConnectionRepository"
+          factory-bean="usersConnectionRepository" scope="request">
+        <!--<constructor-arg value="#{request.userPrincipal.name}" />-->
+        <constructor-arg value="zuzu" />
+        <aop:scoped-proxy proxy-target-class="false" />
+    </bean>
+
+    <bean id="usersConnectionRepository" class="org.springframework.social.connect.mem.InMemoryUsersConnectionRepository">
+        <constructor-arg ref="connectionFactoryLocator" />
+    </bean>
+    <!--<bean id="usersConnectionRepository"
+          class="org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository">
+        <constructor-arg ref="dataSource" />
+        <constructor-arg ref="connectionFactoryLocator" />
+        <constructor-arg ref="textEncryptor" />
+    </bean>-->
+
+    <bean id="textEncryptor" class="org.springframework.security.crypto.encrypt.Encryptors"
+          factory-method="noOpText" />
+</beans>
