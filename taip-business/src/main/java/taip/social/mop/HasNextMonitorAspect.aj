@@ -1,9 +1,10 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.apache.commons.collections.map.*;
+package taip.social.mop;
+
+import org.apache.commons.collections.map.AbstractReferenceMap;
+import org.apache.commons.collections.map.ReferenceIdentityMap;
+import taip.social.domain.entity.Person;
+
+import java.util.*;
 
 public aspect HasNextMonitorAspect {
 	static Map makeMap(Object key){

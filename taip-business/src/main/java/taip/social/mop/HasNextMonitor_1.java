@@ -1,11 +1,10 @@
 package taip.social.mop;
 
 
-import java.io.*;
-import java.util.*;
-import java.lang.ref.WeakReference;
+import taip.social.domain.entity.Person;
 
-import com.sun.xml.internal.fastinfoset.util.StringArray;
+import java.util.Iterator;
+
 public class HasNextMonitor_1 {
 
 	
@@ -34,7 +33,7 @@ public class HasNextMonitor_1 {
 		hasnext = i.hasNext();
 		boolean MOPPTLTL_truth = false;
 
-		MOPPTLTL_truth = (! next |   p.friends.get(0)!= null ) ;
+		//MOPPTLTL_truth = (! next |   p.friends.get(0)!= null ) ;
 		MOP_violation = MOPPTLTL_truth == false;
 	}
 	synchronized public final void next(Iterator i) {
@@ -44,7 +43,7 @@ public class HasNextMonitor_1 {
 
 		boolean MOPPTLTL_truth = false;
 
-		MOPPTLTL_truth = (! next |    p.friends.get(0)!= null ) ;
+		//MOPPTLTL_truth = (! next |    p.friends.get(0)!= null ) ;
 		MOP_violation = MOPPTLTL_truth == false;
 	}
 	synchronized public final boolean MOP_violation() {
@@ -59,9 +58,9 @@ public class HasNextMonitor_1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Person p = new Person();//original Person
-		p.friends = new ArrayList<>();
+		//p.friends = new ArrayList<>();
 		for(int i=0; i< 3;i++){
-			p.friends.add(new Person());
+			//p.friends.add(new Person());
 		}
 		HasNextMonitor_1 testHasNext = new HasNextMonitor_1(p);
 ////		String testString = "newString";
@@ -69,8 +68,8 @@ public class HasNextMonitor_1 {
 //		al.add("A");
 //		al.add("B");
 //		al.add("C");
-		Iterator i = p.friends.iterator();
+		/*Iterator i = p.friends.iterator();
 		testHasNext.hasnext(i);
-		
+		*/
 	}
 }

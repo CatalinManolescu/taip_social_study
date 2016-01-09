@@ -1,9 +1,13 @@
+package taip.social.mop;
+
+import org.apache.commons.collections.map.AbstractReferenceMap;
+import org.apache.commons.collections.map.ReferenceIdentityMap;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.collections.map.*;
 
 public aspect SafeFileMonitorAspect {
 	static Map makeMap(Object key){
