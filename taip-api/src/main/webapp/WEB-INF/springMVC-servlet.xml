@@ -17,6 +17,7 @@
     <!--<context:annotation-config/>-->
     <context:component-scan base-package="org.springframework.social.facebook"/>
     <context:component-scan base-package="taip.social.api" />
+    <context:component-scan base-package="taip.social.domain" />
 
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />

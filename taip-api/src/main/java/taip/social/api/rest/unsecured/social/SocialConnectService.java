@@ -20,9 +20,7 @@ import javax.ws.rs.Path;
  * @author Catalin Manolescu <cc.manolescu@gmail.com>
  */
 @Controller
-//@PermitAll
-//@Path("/social/connect")
-//@RequestMapping("/social/connect")
+@PermitAll
 @RequestMapping("/connect")
 public class SocialConnectService extends ConnectController {
     public static final String FACEBOOK_PROVIDER_ID = "facebook";
@@ -30,7 +28,6 @@ public class SocialConnectService extends ConnectController {
     @Inject
     public SocialConnectService(ConnectionFactoryLocator connectionFactoryLocator, ConnectionRepository connectionRepository) {
         super(connectionFactoryLocator, connectionRepository);
-        //setViewPath("social/connect");
     }
 
     @Override

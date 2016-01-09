@@ -59,7 +59,7 @@ public class AuthorisationService {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    UserControl userControl;
+    private UserControl userControl;
     
     /**
      * Login method.

@@ -27,11 +27,12 @@ public class FacebookService {
 
     @RequestMapping(method= RequestMethod.GET)
     public String helloFacebook(Model model) {
-        if ((facebook != null && !facebook.isAuthorized())) {
+        if (!facebook.isAuthorized()) {
             return "redirect:/services/social/connect/facebook";
         }
 
         model.addAttribute("user", facebook.userOperations().getUserProfile());
+        //facebook.userOperations().getUserPermissions();
         PagedList<FriendList> friends = facebook.friendOperations().getFriendLists();
         model.addAttribute("friends", friends);
 
